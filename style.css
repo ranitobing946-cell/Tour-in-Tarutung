@@ -1,153 +1,61 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f8fc;
-    color: #333;
-}
-
-header {
-    background: #075985;
-    color: white;
-    padding: 20px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header h2 {
-    font-size: 28px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #facc15;
-}
-
-.hero {
-    background: linear-gradient(120deg, #075985, #0891b2);
-    color: white;
-    text-align: center;
-    padding: 110px 20px;
-}
-
-.hero h1 {
-    font-size: 42px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.btn-jelajah {
-    display: inline-block;
-    background: #facc15;
-    color: #333;
-    padding: 14px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#destinasi {
-    padding: 60px 7%;
-    text-align: center;
-}
-
-#destinasi h2,
-#tiket h2 {
-    font-size: 30px;
-    margin-bottom: 30px;
-    color: #075985;
-}
-
-.wisata-container,
-.transport-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-}
-
+/* KARTU DESTINASI BISA DIKLIK */
 .wisata-card {
-    background: white;
-    width: 280px;
-    padding-bottom: 20px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px #00000015;
-}
-
-.wisata-card img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-}
-
-.wisata-card h3 {
-    margin: 15px;
-    color: #075985;
-}
-
-.wisata-card p {
-    padding: 0 15px;
-    line-height: 1.5;
-}
-
-#tiket {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    color: inherit;
     text-align: center;
-    padding: 60px 20px;
+    transition: 0.3s;
 }
 
-#tiket p {
-    margin-bottom: 25px;
+.wisata-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.transport-card {
-    background: white;
-    padding: 30px;
-    width: 180px;
-    border-radius: 12px;
-    font-size: 22px;
-    box-shadow: 0 4px 15px #00000015;
+.petunjuk {
+    display: block;
+    color: #1765b5;
+    font-size: 13px;
+    margin-top: 10px;
 }
 
-#tiket .btn-jelajah {
-    margin-top: 30px;
-}
-
-footer {
-    background: #075985;
-    color: white;
-    text-align: center;
+/* INFORMASI DESTINASI */
+.detail-wisata {
+    display: none;
+    max-width: 700px;
+    margin: 30px auto;
     padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    text-align: center;
 }
 
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
+.detail-wisata button {
+    background: #1765b5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
 
-    nav a {
-        margin: 0 7px;
-        font-size: 14px;
-    }
+/* TOMBOL TRANSPORTASI */
+.transport-card {
+    cursor: pointer;
+    font-family: inherit;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
 
-    .hero h1 {
-        font-size: 30px;
-    }
+.transport-card:hover {
+    transform: translateY(-4px);
+}
+
+.transport-card.aktif {
+    background: #1765b5;
+    color: white;
+    border-color: #f5b82e;
 }
