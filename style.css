@@ -1,0 +1,95 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+header {
+    background-color: #075985;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2 {
+    font-size: 28px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.hero {
+    background: linear-gradient(120deg, #075985, #0891b2);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.btn-jelajah {
+    background-color: #facc15;
+    color: #333;
+    padding: 13px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+#destinasi {
+    padding: 50px 7%;
+    text-align: center;
+}
+
+#destinasi h2 {
+    margin-bottom: 30px;
+}
+
+.wisata-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.wisata-card {
+    background: white;
+    width: 280px;
+    padding-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px #00000020;
+}
+
+.wisata-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.wisata-card h3 {
+    margin: 15px;
+}
+
+.wisata-card p {
+    padding: 0 15px;
+}
