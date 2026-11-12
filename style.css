@@ -7,12 +7,12 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f7fa;
+    background: #f5f8fc;
     color: #333;
 }
 
 header {
-    background-color: #075985;
+    background: #075985;
     color: white;
     padding: 20px 7%;
     display: flex;
@@ -28,47 +28,58 @@ nav a {
     color: white;
     text-decoration: none;
     margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #facc15;
 }
 
 .hero {
     background: linear-gradient(120deg, #075985, #0891b2);
     color: white;
     text-align: center;
-    padding: 100px 20px;
+    padding: 110px 20px;
 }
 
 .hero h1 {
-    font-size: 40px;
-    margin-bottom: 15px;
+    font-size: 42px;
+    margin-bottom: 20px;
 }
 
 .hero p {
     font-size: 18px;
-    margin-bottom: 25px;
-}
-
-.btn-jelajah {
-    background-color: #facc15;
-    color: #333;
-    padding: 13px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-
-#destinasi {
-    padding: 50px 7%;
-    text-align: center;
-}
-
-#destinasi h2 {
     margin-bottom: 30px;
 }
 
-.wisata-container {
+.btn-jelajah {
+    display: inline-block;
+    background: #facc15;
+    color: #333;
+    padding: 14px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#destinasi {
+    padding: 60px 7%;
+    text-align: center;
+}
+
+#destinasi h2,
+#tiket h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #075985;
+}
+
+.wisata-container,
+.transport-container {
     display: flex;
-    gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 25px;
 }
 
 .wisata-card {
@@ -77,19 +88,66 @@ nav a {
     padding-bottom: 20px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 3px 12px #00000020;
+    box-shadow: 0 4px 15px #00000015;
 }
 
 .wisata-card img {
     width: 100%;
-    height: 180px;
+    height: 190px;
     object-fit: cover;
 }
 
 .wisata-card h3 {
     margin: 15px;
+    color: #075985;
 }
 
 .wisata-card p {
     padding: 0 15px;
+    line-height: 1.5;
+}
+
+#tiket {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+#tiket p {
+    margin-bottom: 25px;
+}
+
+.transport-card {
+    background: white;
+    padding: 30px;
+    width: 180px;
+    border-radius: 12px;
+    font-size: 22px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+#tiket .btn-jelajah {
+    margin-top: 30px;
+}
+
+footer {
+    background: #075985;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
 }
