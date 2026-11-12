@@ -12,55 +12,91 @@
     <header>
         <h2>JalanYuk.</h2>
         <nav>
-            <a href="#">Beranda</a>
+            <a href="#beranda">Beranda</a>
             <a href="#destinasi">Destinasi</a>
             <a href="#tiket">Pemesanan</a>
         </nav>
     </header>
 
-    <section class="hero">
+    <!-- BERANDA -->
+    <section class="hero" id="beranda">
         <h1>Jelajahi Keindahan Tarutung!</h1>
         <p>Temukan wisata terbaik dan pesan perjalananmu dengan mudah.</p>
-        <a href="#destinasi" class="btn-jelajah">Jelajahi Sekarang</a>
+        <a href="#destinasi" class="btn-jelajah">
+            Jelajahi Sekarang
+        </a>
     </section>
 
+    <!-- DESTINASI WISATA -->
     <section id="destinasi">
         <h2>Destinasi Wisata Tarutung</h2>
 
         <div class="wisata-container">
 
-            <div class="wisata-card">
-               <img src="salib.jpg" alt="Salib Kasih">
+            <button class="wisata-card"
+                onclick="lihatWisata('salib')">
+                <img src="salib.jpg" alt="Salib Kasih">
                 <h3>Salib Kasih</h3>
                 <p>Destinasi wisata religi terkenal di Tarutung.</p>
-            </div>
+                <span class="petunjuk">Klik untuk informasi</span>
+            </button>
 
-            <div class="wisata-card">
+            <button class="wisata-card"
+                onclick="lihatWisata('menara')">
                 <img src="menara.jpeg" alt="Menara Pandang Tarutung">
                 <h3>Menara Pandang Tarutung</h3>
                 <p>Nikmati keindahan pemandangan alam Tarutung.</p>
-            </div>
+                <span class="petunjuk">Klik untuk informasi</span>
+            </button>
 
-            <div class="wisata-card">
+            <button class="wisata-card"
+                onclick="lihatWisata('air')">
                 <img src="air%20soda.jpg" alt="Air Soda Tarutung">
                 <h3>Air Soda Tarutung</h3>
                 <p>Temukan pengalaman wisata alam yang unik.</p>
-            </div>
+                <span class="petunjuk">Klik untuk informasi</span>
+            </button>
 
+        </div>
+
+        <!-- INFORMASI DESTINASI -->
+        <div id="detail-wisata" class="detail-wisata">
+            <h3 id="judul-wisata"></h3>
+            <p id="isi-wisata"></p>
+            <button onclick="tutupWisata()">Tutup Informasi</button>
         </div>
     </section>
 
+    <!-- PEMESANAN TRANSPORTASI -->
     <section id="tiket">
         <h2>Pemesanan Transportasi</h2>
         <p>Pilih kendaraan untuk perjalanan wisata kamu.</p>
 
         <div class="transport-container">
-            <div class="transport-card">🏍️ Motor</div>
-            <div class="transport-card">🚌 Bus</div>
-            <div class="transport-card">🚗 Mobil</div>
+
+            <button class="transport-card"
+                onclick="pilihTransportasi(this, 'Motor')">
+                🏍️ Motor
+            </button>
+
+            <button class="transport-card"
+                onclick="pilihTransportasi(this, 'Bus')">
+                🚌 Bus
+            </button>
+
+            <button class="transport-card"
+                onclick="pilihTransportasi(this, 'Mobil')">
+                🚗 Mobil
+            </button>
+
         </div>
 
-        <a href="mailto:info@jalanyuk.com" class="btn-jelajah">
+        <p id="pilihan-kendaraan">
+            Silakan pilih kendaraan terlebih dahulu.
+        </p>
+
+        <a href="#" id="hubungi-kami" class="btn-jelajah"
+           onclick="hubungiWhatsApp(event)">
             Hubungi Kami
         </a>
     </section>
@@ -68,6 +104,98 @@
     <footer>
         <p>&copy; 2026 JalanYuk - Wisata Tarutung</p>
     </footer>
+
+    <script>
+
+        // INFORMASI DESTINASI WISATA
+        const informasiWisata = {
+
+            salib: {
+                judul: "Salib Kasih",
+                isi: "Salib Kasih merupakan salah satu destinasi wisata religi di Tarutung, Tapanuli Utara. Tempat ini memiliki nilai sejarah dan spiritual serta menawarkan suasana alam yang sejuk."
+            },
+
+            menara: {
+                judul: "Menara Pandang Tarutung",
+                isi: "Menara Pandang Tarutung merupakan tempat wisata untuk menikmati pemandangan alam dan keindahan kawasan Tarutung dari ketinggian."
+            },
+
+            air: {
+                judul: "Air Soda Tarutung",
+                isi: "Air Soda merupakan salah satu objek wisata alam unik di Tarutung. Airnya memiliki karakteristik seperti minuman bersoda dan menjadi daya tarik bagi wisatawan."
+            }
+
+        };
+
+        // FUNGSI KLIK DESTINASI
+        function lihatWisata(nama) {
+
+            const wisata = informasiWisata[nama];
+
+            document.getElementById("judul-wisata").innerText =
+                wisata.judul;
+
+            document.getElementById("isi-wisata").innerText =
+                wisata.isi;
+
+            document.getElementById("detail-wisata").style.display =
+                "block";
+
+            document.getElementById("detail-wisata").scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+
+        function tutupWisata() {
+            document.getElementById("detail-wisata").style.display =
+                "none";
+        }
+
+        // FUNGSI PILIH TRANSPORTASI
+        let kendaraanDipilih = "";
+
+        function pilihTransportasi(tombol, kendaraan) {
+
+            kendaraanDipilih = kendaraan;
+
+            document.querySelectorAll(".transport-card").forEach(item => {
+                item.classList.remove("aktif");
+            });
+
+            tombol.classList.add("aktif");
+
+            document.getElementById("pilihan-kendaraan").innerText =
+                "Kendaraan yang kamu pilih: " + kendaraan;
+        }
+
+        // FUNGSI HUBUNGI WHATSAPP
+        function hubungiWhatsApp(event) {
+
+            event.preventDefault();
+
+            if (kendaraanDipilih === "") {
+                alert("Silakan pilih Motor, Bus, atau Mobil terlebih dahulu!");
+                return;
+            }
+
+            // GANTI NOMOR INI DENGAN NOMOR WHATSAPP PENGELOLA
+            const nomorWhatsApp = "628xxxxxxxxxx";
+
+            if (nomorWhatsApp.includes("x")) {
+                alert("Silakan masukkan nomor WhatsApp pengelola terlebih dahulu pada kode website.");
+                return;
+            }
+
+            const pesan = "Halo JalanYuk, saya ingin memesan transportasi wisata Tarutung. Kendaraan yang saya pilih adalah " + kendaraanDipilih + ".";
+
+            const link = "https://wa.me/" + nomorWhatsApp +
+                "?text=" + encodeURIComponent(pesan);
+
+            window.open(link, "_blank");
+        }
+
+    </script>
 
 </body>
 </html>
